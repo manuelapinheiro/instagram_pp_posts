@@ -1,0 +1,379 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <title>Posts</title>
+  </head>
+  
+  <style>
+  
+    body {
+      background-color: hsl(263, 88%, 87%);
+    }
+    
+      .pp {
+        display: block;
+        position: absolute;
+        left: 21%;
+        bottom: 630px;
+        align-items: center;
+      }
+      
+      #me {
+        width: 15vw;
+        max-width: 100px;
+        border-radius: 50%;
+        box-shadow: 4px 0px 49px 9px rgba(0,0,0,0.75);
+
+      }
+
+      .name {
+        
+        font-size: 2em;
+        color: hsl(323, 100%, 50%);
+        font-weight: bold;
+        font-family: hoynes;
+        
+        position: absolute;
+        top: 10%;
+/*         left: 40%; */
+        width: 100%;
+        text-align: center;
+          
+      }
+      
+      .bio {
+        
+        font-size: 1em;
+        color: hsl(323, 100%, 28%);
+        font-family: pixel;
+        
+        
+        position: absolute;
+        top: 15%;
+        width: 100%;
+        text-align: center;
+        
+      }
+      
+      .menu {
+        
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+        position: absolute;
+        top: 20%;
+        left: 21%;
+        width: 60vw;
+        gap: 8px;
+        
+      }
+      
+      #posts {
+        width: 10vw;
+        max-width: 60px;
+        border-radius: 50%;
+        box-shadow: 0px 0px 52px -2px rgba(0,0,0,0.75);
+        transition: ease 0.5s;
+      }
+      
+      #posts:hover {
+        width: 10vw;
+        max-width: 55px;
+        border-radius: 50%;
+        box-shadow: 0px 0px 52px 1px rgba(0,0,0,0.75);
+        transition: all 0.5s;
+      }
+      
+      #network {
+        width: 8vw;
+        max-width: 50px;
+        border-radius: 50%;
+        box-shadow: 0px 0px 52px -2px rgba(0,0,0,0.75);
+        transition: ease 0.5s;
+      }
+      
+      #network:hover {
+        width: 9vw;
+        max-width: 55px;
+        border-radius: 50%;
+        box-shadow: 0px 0px 52px 1px rgba(0,0,0,0.75);
+        transition: all 0.5s;
+      }
+      
+      #stories {
+        width: 8vw;
+        max-width: 50px;
+        border-radius: 50%;
+        box-shadow: 0px 0px 52px -2px rgba(0,0,0,0.75);
+        transition: ease 0.5s;
+      }
+      
+      #stories:hover {
+        width: 9vw;
+        max-width: 55px;
+        border-radius: 50%;
+        box-shadow: 0px 0px 52px 1px rgba(0,0,0,0.75);
+        transition: all 0.5s;
+      }
+      
+      #saved {
+        width: 8vw;
+        max-width: 50px;
+        border-radius: 50%;
+        box-shadow: 0px 0px 52px -2px rgba(0,0,0,0.75);
+        transition: ease 0.5s;
+      }
+      
+      #saved:hover {
+        width: 9vw;
+        max-width: 55px;
+        border-radius: 50%;
+        box-shadow: 0px 0px 52px 1px rgba(0,0,0,0.75);
+        transition: all 0.5s;
+      }
+      
+      #tagged {
+        width: 8vw;
+        max-width: 50px;
+        border-radius: 50%;
+        box-shadow: 0px 0px 52px -2px rgba(0,0,0,0.75);
+        transition: ease 0.5s;
+      }
+      
+      #tagged:hover {
+        width: 9vw;
+        max-width: 55px;
+        border-radius: 50%;
+        box-shadow: 0px 0px 52px 1px rgba(0,0,0,0.75);
+        transition: all 0.5s;
+      }
+      
+      #customize {
+        width: 8vw;
+        max-width: 50px;
+        border-radius: 50%;
+        box-shadow: 0px 0px 52px -2px rgba(0,0,0,0.75);
+        transition: ease 0.5s;
+      }
+      
+      #customize:hover {
+        width: 18vw;
+        max-width: 55px;
+        border-radius: 50%;
+        box-shadow: 0px 0px 52px 1px rgba(0,0,0,0.75);
+        transition: all 0.5s;
+      }
+      
+      @keyframes floater {
+        0%{transform: translateX(-1%);transition: ease 0.5s}
+        25%{transform: translateY(-1%);transition: ease 0.5s}
+        50%{transform: translateX(-1%);transition: ease 0.5s}
+        75%{transform: translateY(-1%);transition: ease 0.5s}
+      }
+      
+      @keyframes floater2 {
+        0%{transform: translateX(1%);transition: ease 0.5s}
+        25%{transform: translateY(1%);transition: ease 0.5s}
+        50%{transform: translateX(1%);transition: ease 0.5s}
+        75%{transform: translateY(1%);transition: ease 0.5s}
+      }
+      
+      @keyframes floater3 {
+        0%{transform: translateY(1%);transition: ease 0.5s}
+        25%{transform: translateX(1%);transition: ease 0.5s}
+        50%{transform: translateY(1%);transition: ease 0.5s}
+        75%{transform: translateX(1%);transition: ease 0.5s}
+      }
+      
+      .turtle {
+        position: fixed;
+        top: 300px;
+        left: 8%;
+        display: flex;
+        border: none;
+        background: none;
+        cursor: pointer;
+      }
+      
+      #turtle {
+        width: 140px;
+        box-shadow: 0px 0px 52px 1px rgba(0,0,0,0.75);
+        animation: floater 4s infinite;
+        transition: ease 0.5s;
+        
+      }
+      
+      #turtle:hover {
+        width: 145px;
+        box-shadow: 0px 0px 52px 1px rgba(0,0,0,0.75);
+        transition: all 0.2s;
+      }
+      
+      .nyc {
+        position: fixed;  
+        top: 400px;       
+        left: 67%;   
+        display: flex;
+      }
+      
+      #nyc {
+        width: 180px;
+        box-shadow: 0px 0px 52px 1px rgba(0,0,0,0.75);
+        animation: floater 4s infinite;
+        transition: ease 0.5s;
+      }
+      
+      #nyc:hover {
+        width: 185px;
+        box-shadow: 0px 0px 52px 1px rgba(0,0,0,0.75);
+        transition: all 0.2s;
+      }
+      
+      .science {
+        position: fixed;
+        top: 225px;
+        left: 60%;
+        display: flex;
+      }
+      
+      #science {
+        width: 140px;
+        box-shadow: 0px 0px 52px 1px rgba(0,0,0,0.75);
+        animation: floater2 4s infinite;
+        transition: ease 0.5s;
+      }
+      
+      #science:hover {
+        width: 145px;
+        box-shadow: 0px 0px 52px 1px rgba(0,0,0,0.75);
+        transition: all 0.2s;
+      }
+      
+      .goat {
+        position: fixed;
+        top: 500px;
+        left: 17%;
+        display: flex;
+      }
+      
+      #goat {
+        width: 130px;
+        box-shadow: 0px 0px 52px 1px rgba(0,0,0,0.75);
+        animation: floater2 4s infinite;
+        transition: ease 0.5s;
+      }
+      
+      #goat:hover {
+        width: 135px;
+        box-shadow: 0px 0px 52px 1px rgba(0,0,0,0.75);
+        transition: all 0.2s;
+      }
+      
+      .senior {
+        position: fixed;
+        top: 235px;
+        left: 35%;
+        display: flex;
+      }
+      
+      #senior {
+        width: 120px;
+        box-shadow: 0px 0px 52px 1px rgba(0,0,0,0.75);
+        animation: floater3 4s infinite;
+        transition: ease 0.5s;
+      }
+      
+      #senior:hover {
+        width: 125px;
+        box-shadow: 0px 0px 52px 1px rgba(0,0,0,0.75);
+        transition: all 0.2s;
+      }
+      
+      .hallow {
+        position: fixed;
+        top: 350px;
+        left: 45%;
+        display: flex;
+      }
+      
+      #hallow {
+        width: 130px;
+        box-shadow: 0px 0px 52px 1px rgba(0,0,0,0.75);
+        animation: floater3 4s infinite;
+        transition: ease 0.5s;
+
+      }
+      
+      #hallow:hover {
+        width: 135px;
+        box-shadow: 0px 0px 52px 1px rgba(0,0,0,0.75);
+        transition: all 0.2s;
+      }
+    
+  
+  </style>
+  
+  <body>
+    
+      <div class="pp">
+        <img id="me" src="me.png" alt="pic of manu">
+      </div>
+    
+      <div class="name"> 
+        manu 
+      </div>
+    
+      <div class="bio">
+        somewhere between rio and chicago
+      </div>
+    
+      <nav class="menu">
+        
+        <a href="#"> <img id="posts" src="posts.png" alt="posts icon"> </a>
+        <a href="#"> <img id="network" src="network.png" alt="network icon"> </a>
+        <a href="#"> <img id="stories" src="stories.png" alt="stories icon"> </a>
+        <a href="#"> <img id="saved" src="saved.png" alt="saved icon"> </a>
+        <a href="#"> <img id="tagged" src="tagged.png" alt="tagged icon"> </a>
+        <a href="#"> <img id="customize" src="customize.png" alt="customize icon"> </a>
+    
+      </nav>
+    
+      <div class="turtle">
+      <a href="https://raw.githubusercontent.com/manuelapinheiro/instagram_pp/refs/heads/main/turtle.png" target="_blank"><img id="turtle" src="turtle.png" alt="turtle at the aquarium"></a> 
+      </div>
+    
+      <div class="nyc">
+        <a href="https://raw.githubusercontent.com/manuelapinheiro/instagram_pp/refs/heads/main/nyc.png" target="_blank">
+        <img id="nyc" src="nyc.png" alt="friends in nyc">
+        </a>
+      </div>
+    
+      <div class="science">
+        <a href="https://raw.githubusercontent.com/manuelapinheiro/instagram_pp/refs/heads/main/science.png" target="_blank">
+        <img id="science" src="science.png" alt="yay science!">
+        </a>
+      </div>
+    
+      <div class="goat">
+        <a href="https://raw.githubusercontent.com/manuelapinheiro/instagram_pp/refs/heads/main/goat.png" target="_blank">
+        <img id="goat" src="goat.png" alt="petting some goats :)">
+        </a>
+      </div>
+    
+      <div class="senior">
+        <a href="https://raw.githubusercontent.com/manuelapinheiro/instagram_pp/refs/heads/main/senior.png" target="_blank">
+        <img id="senior" src="senior.png" alt="first day of senior year!">
+        </a>
+      </div>
+    
+      <div class="hallow">
+        <a href="https://raw.githubusercontent.com/manuelapinheiro/instagram_pp/refs/heads/main/hallow.png" target="_blank">
+        <img id="hallow" src="hallow.png" alt="halloween!!!">
+        </a>
+      
+      </div>
+  
+    
+  </body>
+</html>

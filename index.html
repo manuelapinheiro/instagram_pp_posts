@@ -211,8 +211,8 @@
       
       .turtle {
         position: fixed;
-        top: 300px;
-        left: 8%;
+        top: 380px;
+        left: 28%;
         display: flex;
         border: none;
         background: none;
@@ -220,7 +220,7 @@
       }
       
       #turtle {
-        width: 140px;
+        width: 100px;
         box-shadow: 0px 0px 52px 1px rgba(0,0,0,0.75);
         animation: floater 4s infinite;
         transition: ease 0.5s;
@@ -228,36 +228,66 @@
       }
       
       #turtle:hover {
-        width: 145px;
+        width: 105px;
         box-shadow: 0px 0px 52px 1px rgba(0,0,0,0.75);
         transition: all 0.2s;
       }
       
+      #turtle_pop {
+        position: fixed;
+        top: 0px;
+        left: 0px;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(0, 0, 0, 0.75);
+        display: none;
+        justify-content: center;
+        align-items: center;
+        z-index: 1;
+        
+      }
+      
+      #turtle_pop > img {
+        width: 75%;
+      }
+      
+      #closepop {
+        position: absolute;
+        top: 40px;
+        right: 40px;
+        font-size: 42px;
+        color: #fff;
+        cursor: pointer;
+        
+      }
+    
       .nyc {
         position: fixed;  
-        top: 400px;       
-        left: 67%;   
+        bottom: 110px;       
+        left: 55%;   
         display: flex;
+        cursor: pointer;
       }
       
       #nyc {
-        width: 180px;
+        width: 150px;
         box-shadow: 0px 0px 52px 1px rgba(0,0,0,0.75);
         animation: floater 4s infinite;
         transition: ease 0.5s;
       }
       
       #nyc:hover {
-        width: 185px;
+        width: 155px;
         box-shadow: 0px 0px 52px 1px rgba(0,0,0,0.75);
         transition: all 0.2s;
       }
       
       .science {
         position: fixed;
-        top: 225px;
+        top: 235px;
         left: 60%;
         display: flex;
+        cursor: pointer;
       }
       
       #science {
@@ -278,6 +308,7 @@
         top: 500px;
         left: 17%;
         display: flex;
+        cursor: pointer;
       }
       
       #goat {
@@ -298,6 +329,7 @@
         top: 235px;
         left: 35%;
         display: flex;
+        cursor: pointer;
       }
       
       #senior {
@@ -318,6 +350,7 @@
         top: 350px;
         left: 45%;
         display: flex;
+        cursor: pointer;
       }
       
       #hallow {
@@ -362,41 +395,74 @@
     
       </nav>
     
-      <div class="turtle">
-      <a href="https://raw.githubusercontent.com/manuelapinheiro/instagram_pp/refs/heads/main/turtle.png" target="_blank"><img id="turtle" src="turtle.png" alt="turtle at the aquarium"></a> 
+      <div class="turtle post">
+      <img id="turtle" src="turtle.png" alt="turtle at the aquarium">
       </div>
     
-      <div class="nyc">
-        <a href="https://raw.githubusercontent.com/manuelapinheiro/instagram_pp/refs/heads/main/nyc.png" target="_blank">
+      <div id="turtle_pop">
+        <span id="closepop">×</span>
+        <img src="turtle.png" alt="turtle at the aquarium">
+      </div>
+
+    
+      <div class="nyc post">
         <img id="nyc" src="nyc.png" alt="friends in nyc">
-        </a>
       </div>
     
-      <div class="science">
-        <a href="https://raw.githubusercontent.com/manuelapinheiro/instagram_pp/refs/heads/main/science.png" target="_blank">
+    
+      <div class="science post">
         <img id="science" src="science.png" alt="yay science!">
-        </a>
       </div>
     
-      <div class="goat">
-        <a href="https://raw.githubusercontent.com/manuelapinheiro/instagram_pp/refs/heads/main/goat.png" target="_blank">
+      <div class="goat post">
         <img id="goat" src="goat.png" alt="petting some goats :)">
-        </a>
       </div>
     
-      <div class="senior">
-        <a href="https://raw.githubusercontent.com/manuelapinheiro/instagram_pp/refs/heads/main/senior.png" target="_blank">
+      <div class="senior post">
         <img id="senior" src="senior.png" alt="first day of senior year!">
-        </a>
       </div>
     
-      <div class="hallow">
-        <a href="https://raw.githubusercontent.com/manuelapinheiro/instagram_pp/refs/heads/main/hallow.png" target="_blank">
+      <div class="hallow post">
         <img id="hallow" src="hallow.png" alt="halloween!!!">
-        </a>
       
       </div>
-  
+   
     
   </body>
 </html>
+
+<script src="https://cdn.jsdelivr.net/gh/netizenorg/netnet-standard-library/build/nn.min.js"></script>
+
+<script>
+  /* global nn */
+  nn.on('load', setupImages)
+  
+  function displayPopup (event) {
+    // the clicked image
+    const img = event.target 
+    // apply the "src" and "alt" of the clicked image
+    // to the img inside the popup element
+    nn.get('#turtle_pop > img')
+      .set('src', img.src)
+      .set('alt', img.alt)
+    // display the popup element
+    nn.get('#turtle_pop').css({ display: 'flex' })
+  }
+  
+  function closePopup () {
+    nn.get('#turtle_pop').css({ display: 'none' })
+  }
+  
+  function setupImages () {
+    // for each of the images in <main>
+    nn.getAll('.post img').forEach(img => {
+      // display the popup when img is clicked
+      img.on('click', displayPopup)
+    })
+    
+    // close popup when X is clicked
+    nn.get('#closepop').on('click', closePopup)
+  }
+  
+  // run the setupImages function when the page loads
+</script>

@@ -9,8 +9,6 @@
   
       body {
         margin: 0;
-        background-color: hsl(263, 88%, 87%);
-
       }
       
       * {
@@ -32,14 +30,38 @@
         src: url(hoynes.ttf);
       }
 
-  
+      .bg-image {
+        width: 100vw;
+        height: 30vh;
+        background-image: url(gradient.jpg);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-size: cover;
+        background-position: center;
+        
+      }
+      
+      .bg-color {
+        width: 100vw;
+        height: 65vh;
+        background-color: hsl(263, 88%, 87%);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-size: cover;
+        background-position: center;
+      }
+ 
     
       .pp {
-        display: block;
+        display: flex;
+        width: 100vw;
         position: absolute;
-        left: 44%;
-        bottom: 650px;
+        left: 0;
+        bottom: 670px;
         align-items: center;
+        justify-content: center;
       }
       
       #me {
@@ -53,12 +75,12 @@
       .name {
         
         font-size: 2em;
-        color: hsl(323, 100%, 50%);
+        color: white;
         font-weight: bold;
         font-family: hoynes;
         
         position: absolute;
-        top: 14%;
+        top: 13%;
 /*         left: 40%; */
         width: 100%;
         text-align: center;
@@ -68,12 +90,12 @@
       .bio {
         
         font-size: 1em;
-        color: hsl(323, 100%, 28%);
+        color: white;
         font-family: pixel;
         
         
         position: absolute;
-        top: 19%;
+        top: 18%;
         width: 100%;
         text-align: center;
         
@@ -85,7 +107,7 @@
         justify-content: space-around;
         flex-wrap: wrap;
         position: absolute;
-        top: 23%;
+        top: 21%;
         left: 21%;
         width: 60vw;
         gap: 8px;
@@ -371,6 +393,8 @@
   </style>
   
   <body>
+      <div class="bg-image">  </div>
+      <div class="bg-color">  </div>
     
       <div class="pp">
         <img id="me" src="me.png" alt="pic of manu">
